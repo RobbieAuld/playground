@@ -6,7 +6,7 @@ Card = collections.namedtuple("Card", ["rank", "suit"])
 
 class FrenchDeck:
     ranks = [str(n) for n in range(2, 11)] + list('JQKA')
-    suits = "spades diamonds clubs hearts".split()
+    suits = "spades hearts diamonds clubs".split()
 
     def __init__(self):
         self._cards = [Card(rank, suit) for suit in self.suits for rank in self.ranks]
@@ -21,10 +21,5 @@ class FrenchDeck:
 if __name__ == "__main__":
     deck = FrenchDeck()
 
-    #print(f"There are {len(deck)} cards in the deck")
-    #[print(deck[pos]) for pos in range(52)]
-
-    x = "a"
-    while x:
-        x = input('Please press a key. ')
-        print(choice(deck))
+    [print(card) for card in reversed(deck)]
+    
